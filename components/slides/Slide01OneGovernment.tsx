@@ -128,6 +128,19 @@ export function Slide01OneGovernment({ replayTrigger = 0 }: Slide01Props) {
               </span>
             </div>
           </div>
+
+          {/* 3 Core Welfare Anchors Foreshadowing */}
+          <div className="mt-2.5 flex items-center justify-center gap-1.5 w-full max-w-sm">
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-300">
+              🚌 Vettri Payanam
+            </span>
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-300">
+              🔥 Annapoorani Super 6
+            </span>
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-300">
+              ₹ ₹2,500 Support
+            </span>
+          </div>
         </div>
 
         {/* Right (7 cols / ~58%): Tamil Nadu Policy Map + Narration & Quantum Hook */}
