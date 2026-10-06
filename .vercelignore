@@ -1,0 +1,2 @@
+# Ignore Python directory on Vercel deployment
+python/
