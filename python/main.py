@@ -29,14 +29,20 @@ classifier = VariationalQuantumClassifier()
 
 
 class CandidateInput(BaseModel):
-    # Student evaluation features (Slide 7 live experiment)
+    # TVK 2026 Tamil Nadu Election modeling features
+    youth_turnout: float = Field(default=None, description="TVK Youth & Gen-Z Mobilization % (0-100)")
+    anti_incumbency: float = Field(default=None, description="Anti-Incumbency / Change Sentiment % (0-100)")
+    alliance_factor: float = Field(default=None, description="Power-Sharing Entanglement Multiplier % (0-100)")
+    constituency: str = Field(default="Vikravandi", description="Assembly Constituency Name")
+
+    # Legacy fields
     attendance: float = Field(default=85.0, ge=0, le=100, description="Attendance percentage (0-100)")
     study_hours: float = Field(default=6.0, ge=0, le=24, description="Daily study hours (0-24)")
     previous_score: float = Field(default=72.0, ge=0, le=100, description="Previous assessment score (0-100)")
-    # Backwards compatibility fields
     experience: float = Field(default=None, description="Legacy experience parameter")
     skill_score: float = Field(default=None, description="Legacy skill parameter")
     interview_score: float = Field(default=None, description="Legacy interview parameter")
+
 
 
 @app.get("/")
@@ -63,6 +69,10 @@ def health_check():
 def predict_candidate(data: CandidateInput) -> Dict[str, Any]:
     try:
         result = classifier.predict(
+            youth_turnout=data.youth_turnout,
+            anti_incumbency=data.anti_incumbency,
+            alliance_factor=data.alliance_factor,
+            constituency=data.constituency,
             experience=data.experience,
             skill_score=data.skill_score,
             interview_score=data.interview_score,
@@ -73,6 +83,7 @@ def predict_candidate(data: CandidateInput) -> Dict[str, Any]:
         return result
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Quantum circuit execution error: {str(e)}")
+
 
 
 if __name__ == "__main__":

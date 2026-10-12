@@ -3,190 +3,175 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { BlochSphere } from "../quantum/BlochSphere";
-import { EntanglementLink } from "../quantum/EntanglementLink";
 
 export function Slide03Quantum() {
-  const [activeConcept, setActiveConcept] = useState<1 | 2 | 3>(1);
+  const [qubitState, setQubitState] = useState<{ alpha: number; beta: number; label: string }>({
+    alpha: 0.7071,
+    beta: 0.7071,
+    label: "Balanced Undecided Youth Voter",
+  });
+
+  const p0 = Number((qubitState.alpha * qubitState.alpha * 100).toFixed(1));
+  const p1 = Number((qubitState.beta * qubitState.beta * 100).toFixed(1));
 
   return (
-    <div className="relative w-full h-full flex flex-col justify-between p-6 md:p-10 select-none overflow-hidden">
-      {/* Header */}
-      <div>
-        <div className="flex items-center gap-2 mb-1">
+    <div className="relative w-full h-full flex flex-col justify-between p-6 sm:p-10 lg:p-14 select-none overflow-hidden bg-[#05070e]">
+      {/* Slide Header */}
+      <div className="z-10">
+        <div className="flex items-center gap-2 mb-1.5">
           <span className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 bg-cyan-950/80 px-2.5 py-0.5 rounded-full border border-cyan-500/30">
-            Slide 03 • Fundamental Principles
+            Slide 03 • Fundamental Quantum Mechanics
           </span>
           <span className="text-xs font-mono text-slate-500">PRESENTER 01</span>
         </div>
-        <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-          🌌 The Quantum World
+        <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight font-sans">
+          MEET THE QUBIT: THE &apos;SCHRÖDINGER VOTER&apos;
         </h2>
-        <p className="text-sm md:text-base text-slate-300 mt-1">
-          The three foundational physical phenomena powering quantum machine learning.
+        <p className="text-sm sm:text-lg lg:text-xl text-slate-300 mt-1 font-medium">
+          From Binary Classical Transistors to Quantum Superposition: |ψ⟩ = α|0⟩ + β|1⟩
         </p>
       </div>
 
-      {/* 3 Concepts Tabs */}
-      <div className="flex items-center justify-center gap-3 my-2">
-        <button
-          onClick={() => setActiveConcept(1)}
-          className={`flex items-center gap-2 px-4 py-1.5 rounded-xl font-mono text-xs font-semibold transition-all ${
-            activeConcept === 1
-              ? "bg-cyan-500 text-slate-950 shadow-[0_0_15px_rgba(6,182,212,0.4)]"
-              : "bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800"
-          }`}
-        >
-          <span>01</span>
-          <span>QUBIT</span>
-        </button>
-
-        <button
-          onClick={() => setActiveConcept(2)}
-          className={`flex items-center gap-2 px-4 py-1.5 rounded-xl font-mono text-xs font-semibold transition-all ${
-            activeConcept === 2
-              ? "bg-indigo-500 text-white shadow-[0_0_15px_rgba(99,102,241,0.4)]"
-              : "bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800"
-          }`}
-        >
-          <span>02</span>
-          <span>SUPERPOSITION</span>
-        </button>
-
-        <button
-          onClick={() => setActiveConcept(3)}
-          className={`flex items-center gap-2 px-4 py-1.5 rounded-xl font-mono text-xs font-semibold transition-all ${
-            activeConcept === 3
-              ? "bg-violet-500 text-white shadow-[0_0_15px_rgba(139,92,246,0.4)]"
-              : "bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800"
-          }`}
-        >
-          <span>03</span>
-          <span>ENTANGLEMENT</span>
-        </button>
-      </div>
-
-      {/* Concept Panels Display */}
-      <div className="flex-1 my-auto flex items-center justify-center">
-        {/* Concept 1: QUBIT */}
-        {activeConcept === 1 && (
-          <motion.div
-            key="concept-1"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.35 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-4xl w-full"
-          >
-            {/* Visual Vector Comparison */}
-            <div className="bg-slate-950/80 border border-cyan-500/30 rounded-2xl p-6 backdrop-blur-md">
-              <span className="text-xs font-mono font-bold text-cyan-300 uppercase tracking-wider block mb-4">
-                State Vector Representation
+      {/* Main Grid: Left Comparison + Center Bloch Sphere + Right State Amplitudes */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 my-auto items-stretch max-w-[1720px] mx-auto w-full z-10">
+        {/* Left Column (4 cols): Classical Bit vs Quantum Qubit */}
+        <div className="lg:col-span-4 flex flex-col justify-between gap-5">
+          {/* Classical Bit Box */}
+          <div className="bg-slate-950/95 border border-slate-800 rounded-3xl p-6 lg:p-7 shadow-2xl space-y-3">
+            <div className="flex justify-between items-center mb-1">
+              <span className="text-xs sm:text-sm font-mono uppercase text-slate-400 font-bold">
+                Classical Transistor Bit
               </span>
+              <span className="text-xs font-mono px-2.5 py-0.5 rounded bg-slate-900 text-slate-400 border border-slate-800">
+                Discrete
+              </span>
+            </div>
 
-              <div className="flex items-center justify-center gap-6 py-6 bg-slate-900/60 rounded-xl border border-slate-800">
-                <div className="flex flex-col items-center">
-                  <span className="text-xs font-mono text-slate-400 mb-1">Classical</span>
-                  <div className="w-16 h-16 rounded-xl bg-slate-800 border-2 border-slate-600 flex items-center justify-center font-mono text-2xl font-bold text-slate-200">
-                    0 or 1
-                  </div>
+            <div className="flex items-center justify-center gap-8 py-5 bg-slate-900/60 rounded-2xl border border-slate-800 my-2">
+              <div className="text-center">
+                <span className="text-5xl font-mono font-bold text-slate-600 block">0</span>
+                <span className="text-xs font-mono text-slate-400 mt-1 block">Status Quo</span>
+              </div>
+              <span className="text-base font-mono font-bold text-slate-500">OR</span>
+              <div className="text-center">
+                <span className="text-5xl font-mono font-bold text-amber-400 block">1</span>
+                <span className="text-xs font-mono text-amber-300 mt-1 block">Opposition</span>
+              </div>
+            </div>
+
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
+              Rigid binary logic. Fails to model the 1.5+ crore undecided Tamil Nadu voters who hold complex, fluid preferences until election day.
+            </p>
+          </div>
+
+          {/* Wavefunction Collapse Card */}
+          <div className="bg-red-950/40 border border-red-500/40 rounded-3xl p-6 shadow-2xl space-y-2">
+            <span className="text-xs sm:text-sm font-mono uppercase text-red-400 font-bold tracking-wider block">
+              ELECTION DAY COLLAPSE
+            </span>
+            <p className="text-xs sm:text-sm text-slate-200 font-sans leading-relaxed">
+              When a voter enters the polling booth and presses the EVM button, the quantum wavefunction{" "}
+              <strong className="text-white">collapses</strong> into a single classical vote outcome!
+            </p>
+            <div className="pt-2 border-t border-red-900/60 font-mono text-xs text-red-300 flex justify-between">
+              <span>EVM Button Press</span>
+              <span className="font-bold">➔ Measurement Collapse</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Center Column (4 cols): Animated Bloch Sphere */}
+        <div className="lg:col-span-4 flex flex-col items-center justify-center bg-slate-950/90 border border-cyan-500/30 rounded-3xl p-6 lg:p-8 shadow-2xl relative">
+          <span className="text-xs sm:text-sm font-mono uppercase tracking-widest text-cyan-400 font-bold block mb-2 text-center">
+            THE BLOCH SPHERE OF VOTER SENTIMENT
+          </span>
+
+          <div className="my-auto scale-105">
+            <BlochSphere size={280} interactive={true} label="|ψ⟩ = α|0⟩ + β|1⟩" />
+          </div>
+
+          <div className="w-full text-center mt-3">
+            <span className="text-xs sm:text-sm font-mono text-slate-400 block">
+              North Pole: |0⟩ (Status Quo) • South Pole: |1⟩ (TVK Victory)
+            </span>
+          </div>
+        </div>
+
+        {/* Right Column (4 cols): Interactive State Amplitudes & Political Translation */}
+        <div className="lg:col-span-4 flex flex-col justify-between gap-5">
+          <div className="bg-slate-950/95 border border-slate-800 rounded-3xl p-6 lg:p-7 shadow-2xl space-y-4">
+            <div className="flex justify-between items-center">
+              <span className="text-xs sm:text-sm font-mono uppercase text-cyan-400 font-bold">
+                Quantum State Amplitudes
+              </span>
+              <span className="text-xs sm:text-sm font-mono text-white font-bold">|α|² + |β|² = 1</span>
+            </div>
+
+            {/* Probability Bars */}
+            <div className="space-y-3 font-mono text-xs sm:text-sm">
+              <div>
+                <div className="flex justify-between text-slate-300 mb-1">
+                  <span>|0⟩ Status Quo:</span>
+                  <span className="text-slate-400 font-bold">{p0}%</span>
                 </div>
-
-                <div className="text-cyan-400 font-mono text-xl font-bold">⟹</div>
-
-                <div className="flex flex-col items-center">
-                  <span className="text-xs font-mono text-cyan-400 mb-1">Quantum</span>
-                  <div className="px-4 py-3 rounded-xl bg-cyan-950/70 border-2 border-cyan-400 flex items-center justify-center font-mono text-base font-bold text-cyan-200 shadow-[0_0_15px_rgba(6,182,212,0.3)]">
-                    α|0⟩ + β|1⟩
-                  </div>
+                <div className="w-full bg-slate-800 h-3 rounded-full overflow-hidden">
+                  <motion.div className="bg-slate-500 h-full" animate={{ width: `${p0}%` }} />
                 </div>
               </div>
 
-              <div className="mt-4 space-y-1.5 text-xs text-slate-300 font-mono">
-                <div className="flex justify-between">
-                  <span className="text-slate-400">Normalization:</span>
-                  <span className="text-cyan-300 font-bold">|α|² + |β|² = 1</span>
+              <div>
+                <div className="flex justify-between text-slate-300 mb-1">
+                  <span>|1⟩ TVK Transformation:</span>
+                  <span className="text-red-400 font-bold">{p1}%</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-400">Physical System:</span>
-                  <span className="text-slate-200">Superconducting transmon / Trapped Ion</span>
+                <div className="w-full bg-slate-800 h-3 rounded-full overflow-hidden">
+                  <motion.div className="bg-red-500 h-full" animate={{ width: `${p1}%` }} />
                 </div>
               </div>
             </div>
 
-            {/* Explanation Details */}
-            <div className="space-y-4">
-              <div className="bg-slate-900/70 border border-slate-800 rounded-2xl p-5">
-                <h3 className="text-xl font-bold text-white mb-2">01. The Qubit</h3>
-                <p className="text-sm text-slate-300 leading-relaxed">
-                  While a classical bit must choose between binary states 0 or 1, a <strong>qubit</strong> is a 2-level quantum mechanical system described by complex probability amplitudes $\alpha$ and $\beta$.
-                </p>
-                <div className="mt-3 p-3 rounded-xl bg-slate-950/60 border border-slate-800 text-xs text-slate-400">
-                  <strong className="text-cyan-300">Why it matters for ML:</strong> High-dimensional data features can be encoded directly into quantum rotational angles $\theta$ and phases $\phi$, creating an exponential geometric feature space.
-                </div>
+            {/* Tuner Buttons */}
+            <div className="space-y-2 pt-3 border-t border-slate-800">
+              <span className="text-xs font-mono text-slate-400 block">Simulate Voter Alignment:</span>
+              <div className="grid grid-cols-3 gap-2 font-mono text-xs">
+                <button
+                  onClick={() => setQubitState({ alpha: 0.95, beta: 0.31, label: "Hardcore Status Quo Voter" })}
+                  className="py-2 px-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition-all text-center"
+                >
+                  Status Quo
+                </button>
+                <button
+                  onClick={() => setQubitState({ alpha: 0.7071, beta: 0.7071, label: "Balanced Undecided Youth" })}
+                  className="py-2 px-2 rounded-xl bg-cyan-950 hover:bg-cyan-900 text-cyan-300 border border-cyan-500/50 transition-all text-center font-bold"
+                >
+                  Undecided (H)
+                </button>
+                <button
+                  onClick={() => setQubitState({ alpha: 0.28, beta: 0.96, label: "TVK Youth Wave Surge" })}
+                  className="py-2 px-2 rounded-xl bg-red-950 hover:bg-red-900 text-red-300 border border-red-500/50 transition-all text-center font-bold"
+                >
+                  TVK Wave
+                </button>
               </div>
             </div>
-          </motion.div>
-        )}
+          </div>
 
-        {/* Concept 2: SUPERPOSITION */}
-        {activeConcept === 2 && (
-          <motion.div
-            key="concept-2"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.35 }}
-            className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center max-w-4xl w-full"
-          >
-            {/* Bloch Sphere */}
-            <div className="md:col-span-6 flex justify-center">
-              <BlochSphere size={280} interactive={true} label="Superposition: |+⟩ = (|0⟩ + |1⟩)/√2" />
-            </div>
-
-            {/* Tree Branch Diagram & Details */}
-            <div className="md:col-span-6 space-y-4">
-              <div className="bg-slate-900/70 border border-slate-800 rounded-2xl p-5">
-                <h3 className="text-xl font-bold text-white mb-2">02. Superposition</h3>
-                <div className="font-mono text-sm text-cyan-300 bg-slate-950 p-3 rounded-xl border border-slate-800 text-center my-3">
-                  <pre className="text-xs text-slate-300">
-{`        |0⟩ (Amplitude α)
-       /
-QUBIT
-       \\
-        |1⟩ (Amplitude β)`}
-                  </pre>
-                </div>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  Created via the <strong>Hadamard (H) Gate</strong>. Puts the qubit into an equal combination of basis states prior to measurement.
-                </p>
-                <div className="mt-3 text-[11px] font-mono text-indigo-300 bg-indigo-950/50 border border-indigo-500/30 p-2.5 rounded-lg">
-                  Measurement forces the wave function to collapse to either |0⟩ or |1⟩ with probabilities |α|² and |β|².
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-
-        {/* Concept 3: ENTANGLEMENT */}
-        {activeConcept === 3 && (
-          <motion.div
-            key="concept-3"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.35 }}
-            className="w-full max-w-4xl"
-          >
-            <EntanglementLink />
-          </motion.div>
-        )}
+          {/* Academic Insight Box */}
+          <div className="p-5 rounded-3xl bg-slate-900/90 border border-slate-800">
+            <span className="text-xs font-mono text-slate-400 uppercase tracking-wider block">
+              The Fundamental Insight:
+            </span>
+            <p className="text-xs sm:text-sm text-slate-200 mt-1 font-sans leading-relaxed">
+              Superposition allows Python algorithms to compute with continuous probability distributions instead of brute-forcing individual guesses.
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Footer */}
-      <div className="flex items-center justify-between border-t border-slate-800/80 pt-2 text-[11px] font-mono text-slate-500">
-        <span>Slide 3 of 8</span>
-        <span>Click tabs 01, 02, or 03 above to examine each physical phenomenon</span>
-        <span>Speaker: PRESENTER 01</span>
+      <div className="flex justify-between items-center text-xs sm:text-sm font-mono text-slate-500 border-t border-slate-900 pt-3 z-10">
+        <span>Slide 03 • The Qubit & Superposition</span>
+        <span>Next: Slide 04 Quantum Entanglement: The Coalition Multiplier ➔</span>
       </div>
     </div>
   );

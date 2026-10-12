@@ -1,171 +1,187 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Sparkles, ArrowRight, Layers, Cpu, Network } from "lucide-react";
+import { QuantumCircuit } from "../quantum/QuantumCircuit";
 
 export function Slide05Algorithms() {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(0); // Default to VQC
+  const [activeGate, setActiveGate] = useState<number>(1);
 
-  const algorithms = [
+  const gateExplanations = [
     {
-      id: 0,
-      code: "VQC",
-      name: "Variational Quantum Classifier",
-      isDemo: true,
-      icon: Cpu,
-      gradient: "from-cyan-950/80 to-violet-950/70",
-      borderColor: "border-cyan-400",
-      accentColor: "text-cyan-300",
-      pipeline: ["Data", "Quantum Feature Map", "Parameterized Circuit", "Measurement", "Prediction"],
-      description:
-        "Uses a parameterized quantum circuit (PQC / ansatz) as a hypothesis function. Variational rotation angles are trained iteratively using classical gradient-based optimizers.",
-      advantage: "Fault-tolerant to near-term noise; highly adaptable to hybrid quantum systems.",
+      step: "01",
+      gate: "Hadamard (H)",
+      code: "qc.h(0); qc.h(1)",
+      meaning: "Initializes both qubits into equal superposition. Models the 1.5+ crore undecided Tamil Nadu voters who hold no prior party allegiance.",
+      color: "text-cyan-300 border-cyan-500/40 bg-cyan-950/40",
     },
     {
-      id: 1,
-      code: "QSVM",
-      name: "Quantum Support Vector Machine",
-      isDemo: false,
-      icon: Layers,
-      gradient: "from-slate-900 to-indigo-950/70",
-      borderColor: "border-indigo-400/50",
-      accentColor: "text-indigo-300",
-      pipeline: ["Data", "Quantum Kernel", "Classical SVM", "Classification"],
-      description:
-        "Maps classical feature vectors non-linearly into exponentially large quantum Hilbert states K(x, z) = |⟨ψ(x)|ψ(z)⟩|² where inner products represent quantum kernel distances.",
-      advantage: "Solves non-linearly separable problems directly in state space without explicit coordinate expansion.",
+      step: "02",
+      gate: "Rotation-Y (RY)",
+      code: "qc.ry(theta_youth, 0); qc.ry(theta_swing, 1)",
+      meaning: "Angle Embedding: Encodes real demographic features (Youth Turnout % & Anti-Incumbency Index) as continuous rotation angles onto the Bloch sphere.",
+      color: "text-sky-300 border-sky-500/40 bg-sky-950/40",
     },
     {
-      id: 2,
-      code: "QNN",
-      name: "Quantum Neural Network",
-      isDemo: false,
-      icon: Network,
-      gradient: "from-slate-900 to-purple-950/70",
-      borderColor: "border-purple-400/50",
-      accentColor: "text-purple-300",
-      pipeline: ["Input", "Quantum Layers", "Measurement", "Output"],
-      description:
-        "Composes multiple variational entanglement layers analogous to hidden layers in deep learning. Employs parameterized unitary transformations U(θ) for universal function approximation.",
-      advantage: "High representational expressivity with fewer active physical parameters than deep classical networks.",
+      step: "03",
+      gate: "Controlled-NOT (CNOT)",
+      code: "qc.cx(0, 1)",
+      meaning: "Creates quantum entanglement between youth sentiment and coalition partners, modeling Vijay's power-sharing alliance multiplier.",
+      color: "text-purple-300 border-purple-500/40 bg-purple-950/40",
+    },
+    {
+      step: "04",
+      gate: "Variational Layer (Ansatz)",
+      code: "qc.ry(w[0], 0); qc.ry(w[1], 1)",
+      meaning: "Parameterized weights updated iteratively by Python's classical optimizer (Adam/COBYLA) to learn election voting patterns.",
+      color: "text-amber-300 border-amber-500/40 bg-amber-950/40",
+    },
+    {
+      step: "05",
+      gate: "Measurement",
+      code: "qc.measure_all()",
+      meaning: "Simulates 1,000 voting booth EVM button presses, sampling the probability distribution across all 4 election outcomes.",
+      color: "text-emerald-300 border-emerald-500/40 bg-emerald-950/40",
     },
   ];
 
   return (
-    <div className="relative w-full h-full flex flex-col justify-between p-6 md:p-10 select-none overflow-hidden">
-      {/* Header */}
-      <div>
-        <div className="flex items-center gap-2 mb-1">
-          <span className="text-xs font-mono font-bold uppercase tracking-wider text-violet-400 bg-violet-950/80 px-2.5 py-0.5 rounded-full border border-violet-500/30">
-            Slide 05 • Core Algorithms
+    <div className="relative w-full h-full flex flex-col justify-between p-6 sm:p-10 lg:p-14 select-none overflow-hidden bg-[#05070e]">
+      {/* Slide Header */}
+      <div className="z-10">
+        <div className="flex items-center gap-2 mb-1.5">
+          <span className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 bg-cyan-950/80 px-2.5 py-0.5 rounded-full border border-cyan-500/30">
+            Slide 05 • Python Implementation
           </span>
           <span className="text-xs font-mono text-slate-500">PRESENTER 02</span>
         </div>
-        <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-          ⚙️ Quantum Machine Learning Algorithms
+        <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight font-sans">
+          WRITING THE QUANTUM CIRCUIT IN PYTHON
         </h2>
-        <p className="text-sm md:text-base text-slate-300 mt-1">
-          Three principal paradigms uniting quantum state spaces with machine learning.
+        <p className="text-sm sm:text-lg lg:text-xl text-slate-300 mt-1 font-medium">
+          Under 15 Lines of Qiskit Code Modeling Tamil Nadu Election Complexity
         </p>
       </div>
 
-      {/* 3 Interactive Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 my-auto items-stretch">
-        {algorithms.map((algo) => {
-          const Icon = algo.icon;
-          const isSelected = hoveredCard === algo.id;
+      {/* Main Grid: Left Code Editor + Right Circuit Visualizer & Explanations */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 my-auto items-stretch max-w-[1720px] mx-auto w-full z-10">
+        {/* Left Column (6 cols): Clean Python Code Presentation */}
+        <div className="lg:col-span-6 bg-slate-950/95 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl flex flex-col justify-between">
+          {/* Editor Header Bar */}
+          <div className="px-6 py-3.5 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between font-mono text-xs sm:text-sm">
+            <div className="flex items-center gap-2">
+              <span className="w-3.5 h-3.5 rounded-full bg-red-500/80" />
+              <span className="w-3.5 h-3.5 rounded-full bg-yellow-500/80" />
+              <span className="w-3.5 h-3.5 rounded-full bg-green-500/80" />
+              <span className="text-slate-200 font-bold ml-1.5">tvk_quantum_model.py</span>
+            </div>
+            <span className="text-xs text-cyan-400 bg-cyan-950/80 px-3 py-1 rounded-lg border border-cyan-800/40 font-bold">
+              Python 3.11 + Qiskit 1.0
+            </span>
+          </div>
 
-          return (
-            <motion.div
-              key={algo.code}
-              onMouseEnter={() => setHoveredCard(algo.id)}
-              className={`relative rounded-2xl p-5 border flex flex-col justify-between transition-all duration-300 cursor-pointer backdrop-blur-md ${
-                algo.isDemo
-                  ? "border-cyan-400 shadow-[0_0_20px_rgba(6,182,212,0.25)] bg-gradient-to-b from-cyan-950/40 to-slate-950"
-                  : isSelected
-                  ? "border-violet-400/80 shadow-[0_0_15px_rgba(139,92,246,0.2)] bg-slate-950/90"
-                  : "border-slate-800 bg-slate-950/60 hover:border-slate-700"
+          {/* Code Lines with Click-to-Inspect Handlers */}
+          <div className="p-6 font-mono text-xs sm:text-sm lg:text-base leading-relaxed space-y-2 text-slate-200">
+            <div className="text-purple-400">from qiskit import QuantumCircuit</div>
+            <div className="text-white font-bold">qc = QuantumCircuit(2)</div>
+            <div className="text-slate-700 py-0.5"># ──────────────────────────────────────────</div>
+
+            {/* Gate 1: H */}
+            <div
+              onClick={() => setActiveGate(0)}
+              className={`p-2 rounded-xl cursor-pointer flex items-center justify-between transition-all ${
+                activeGate === 0 ? "bg-cyan-950 border border-cyan-400 text-white font-bold shadow-md" : "hover:bg-slate-900"
               }`}
             >
-              {/* Highlight Tag for VQC */}
-              {algo.isDemo && (
-                <div className="absolute -top-3 left-4 px-3 py-0.5 rounded-full text-[10px] font-mono font-bold bg-gradient-to-r from-cyan-500 to-violet-500 text-slate-950 flex items-center gap-1 shadow-md">
-                  <Sparkles size={11} />
-                  ⭐ DEMO → VQC
-                </div>
-              )}
+              <span>qc.h([0, 1])</span>
+              <span className="text-xs text-cyan-400 font-sans">01 • Superposition Baseline</span>
+            </div>
 
-              {/* Card Top */}
-              <div>
-                <div className="flex items-center justify-between mb-3 mt-1">
-                  <span className="text-2xl font-black font-mono tracking-tight text-white">
-                    {algo.code}
-                  </span>
-                  <div className={`p-2 rounded-xl bg-slate-900 border border-slate-800 ${algo.accentColor}`}>
-                    <Icon size={20} />
-                  </div>
-                </div>
+            {/* Gate 2: RY Features */}
+            <div
+              onClick={() => setActiveGate(1)}
+              className={`p-2 rounded-xl cursor-pointer flex items-center justify-between transition-all ${
+                activeGate === 1 ? "bg-sky-950 border border-sky-400 text-white font-bold shadow-md" : "hover:bg-slate-900"
+              }`}
+            >
+              <span>qc.ry(theta_youth, 0); qc.ry(theta_swing, 1)</span>
+              <span className="text-xs text-sky-400 font-sans">02 • TN Demographics</span>
+            </div>
 
-                <h3 className="text-sm font-bold text-slate-200 mb-2">{algo.name}</h3>
+            {/* Gate 3: CNOT */}
+            <div
+              onClick={() => setActiveGate(2)}
+              className={`p-2 rounded-xl cursor-pointer flex items-center justify-between transition-all ${
+                activeGate === 2 ? "bg-purple-950 border border-purple-400 text-white font-bold shadow-md" : "hover:bg-slate-900"
+              }`}
+            >
+              <span>qc.cx(0, 1)</span>
+              <span className="text-xs text-purple-400 font-sans">03 • Coalition Multiplier</span>
+            </div>
 
-                {/* Pipeline Flow representation */}
-                <div className="py-2.5 px-2 bg-slate-900/80 rounded-xl border border-slate-800 mb-3 font-mono text-[10px]">
-                  <div className="text-slate-500 uppercase tracking-wider text-[9px] mb-1">Architecture:</div>
-                  <div className="flex flex-wrap items-center gap-1 text-slate-300">
-                    {algo.pipeline.map((step, idx) => (
-                      <React.Fragment key={step}>
-                        <span
-                          className={`px-1.5 py-0.5 rounded ${
-                            idx === 1 || idx === 2
-                              ? "bg-violet-950 text-violet-300 border border-violet-800/60"
-                              : "bg-slate-800 text-slate-300"
-                          }`}
-                        >
-                          {step}
-                        </span>
-                        {idx < algo.pipeline.length - 1 && (
-                          <span className="text-cyan-400 font-bold">→</span>
-                        )}
-                      </React.Fragment>
-                    ))}
-                  </div>
-                </div>
+            {/* Gate 4: RY Weights */}
+            <div
+              onClick={() => setActiveGate(3)}
+              className={`p-2 rounded-xl cursor-pointer flex items-center justify-between transition-all ${
+                activeGate === 3 ? "bg-amber-950 border border-amber-400 text-white font-bold shadow-md" : "hover:bg-slate-900"
+              }`}
+            >
+              <span>qc.ry(w[0], 0); qc.ry(w[1], 1)</span>
+              <span className="text-xs text-amber-400 font-sans">04 • Variational Ansatz</span>
+            </div>
 
-                <p className="text-xs text-slate-400 leading-relaxed">{algo.description}</p>
-              </div>
+            {/* Gate 5: Measure */}
+            <div
+              onClick={() => setActiveGate(4)}
+              className={`p-2 rounded-xl cursor-pointer flex items-center justify-between transition-all ${
+                activeGate === 4 ? "bg-emerald-950 border border-emerald-400 text-white font-bold shadow-md" : "hover:bg-slate-900"
+              }`}
+            >
+              <span>qc.measure_all()</span>
+              <span className="text-xs text-emerald-400 font-sans">05 • 1,000 Booth Shots</span>
+            </div>
 
-              {/* Card Bottom / Key Advantage */}
-              <div className="mt-4 pt-3 border-t border-slate-800/80">
-                <span className="text-[10px] font-mono uppercase text-slate-500 block">Core Strength:</span>
-                <span className="text-xs font-medium text-slate-200">{algo.advantage}</span>
-              </div>
-            </motion.div>
-          );
-        })}
-      </div>
-
-      {/* Prominent Educational Callout for VQC */}
-      <div className="bg-gradient-to-r from-cyan-950/80 via-slate-900/90 to-violet-950/80 border border-cyan-500/40 rounded-2xl p-4 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-cyan-500/20 border border-cyan-400 text-cyan-300 flex items-center justify-center font-bold text-lg">
-            ⭐
+            <div className="text-slate-700 pt-3 border-t border-slate-900">
+              # Classical Scikit-Learn Training Loop:
+            </div>
+            <div className="text-slate-400">optimizer.minimize(loss_fn, initial_weights)</div>
           </div>
-          <div>
-            <span className="text-xs font-mono font-bold text-cyan-300 uppercase tracking-wider">
-              Why We Selected VQC for Our Technical Demo:
-            </span>
-            <p className="text-xs md:text-sm text-slate-200 mt-0.5">
-              “VQC is ideal for our educational demonstration because it combines{" "}
-              <strong className="text-white">classical optimization</strong> with a{" "}
-              <strong className="text-cyan-300">parameterized quantum circuit</strong>.”
-            </p>
+
+          <div className="px-6 py-3 bg-slate-900/60 border-t border-slate-800 text-xs font-mono text-slate-400 flex justify-between">
+            <span>Click any code line to inspect quantum operation</span>
+            <span className="text-cyan-400 font-bold">Circuit Depth: 4 Gates</span>
           </div>
         </div>
 
-        <span className="text-xs font-mono px-3 py-1.5 rounded-lg bg-cyan-900/60 border border-cyan-500/40 text-cyan-200 hidden lg:inline-block">
-          Next: Python Code & Circuit Run ➔
-        </span>
+        {/* Right Column (6 cols): Circuit Schematic Vector & Gate Deep Dive */}
+        <div className="lg:col-span-6 flex flex-col justify-between gap-5">
+          <QuantumCircuit theta0={1.84} theta1={2.46} w0={0.84} w1={1.28} />
+
+          {/* Active Gate Deep Dive Card */}
+          {(() => {
+            const current = gateExplanations[activeGate];
+            return (
+              <div className={`p-6 lg:p-7 rounded-3xl border ${current.color} shadow-2xl flex flex-col justify-between`}>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-wider">
+                    Step {current.step} • {current.gate}
+                  </span>
+                  <span className="font-mono text-xs px-3 py-1 rounded-xl bg-black/70 text-white font-bold">
+                    {current.code}
+                  </span>
+                </div>
+                <p className="text-sm sm:text-base text-slate-200 font-sans leading-relaxed mt-1">
+                  {current.meaning}
+                </p>
+              </div>
+            );
+          })()}
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="flex justify-between items-center text-xs sm:text-sm font-mono text-slate-500 border-t border-slate-900 pt-3 z-10">
+        <span>Slide 05 • Python Qiskit Circuit</span>
+        <span>Next: Slide 06 The Hybrid Quantum-Classical ML Loop ➔</span>
       </div>
     </div>
   );

@@ -10,14 +10,15 @@ import { MinimalControls } from "./MinimalControls";
 import { SpeakerNotesDrawer } from "./SpeakerNotesDrawer";
 import { KeyboardHelpModal } from "./KeyboardHelpModal";
 
-import { Slide01OneGovernment } from "../slides/Slide01OneGovernment";
-import { Slide02VettriPayanam } from "../slides/Slide02VettriPayanam";
-import { Slide03Annapoorani } from "../slides/Slide03Annapoorani";
-import { Slide04MeetTheQubit } from "../slides/Slide04MeetTheQubit";
-import { Slide05QuantumGates } from "../slides/Slide05QuantumGates";
-import { Slide06AddMachineLearning } from "../slides/Slide06AddMachineLearning";
-import { Slide07LiveExperiment } from "../slides/Slide07LiveExperiment";
-import { Slide08FullCircle } from "../slides/Slide08FullCircle";
+import { Slide01Intro } from "../slides/Slide01Intro";
+import { Slide02Classical } from "../slides/Slide02Classical";
+import { Slide03Quantum } from "../slides/Slide03Quantum";
+import { Slide04Pipeline } from "../slides/Slide04Pipeline";
+import { Slide05Algorithms } from "../slides/Slide05Algorithms";
+import { Slide06Python } from "../slides/Slide06Python";
+import { Slide07Outlook } from "../slides/Slide07Outlook";
+import { Slide08Demo } from "../slides/Slide08Demo";
+
 
 const TOTAL_SLIDES = 8;
 
@@ -86,8 +87,8 @@ export function PresentationDeck() {
         return;
       }
 
-      // In Slide 7, ArrowUp and ArrowDown are reserved for adjusting experiment parameters
-      if (currentSlide === 7 && (e.key === "ArrowDown" || e.key === "ArrowUp")) {
+      // In Slide 8 (Demo), ArrowUp and ArrowDown are reserved for adjusting experiment parameters
+      if (currentSlide === 8 && (e.key === "ArrowDown" || e.key === "ArrowUp")) {
         return;
       }
 
@@ -131,7 +132,7 @@ export function PresentationDeck() {
         case "d":
         case "D":
           e.preventDefault();
-          jumpToSlide(7);
+          jumpToSlide(8);
           break;
 
         case "n":
@@ -139,6 +140,7 @@ export function PresentationDeck() {
           e.preventDefault();
           setIsNotesOpen((prev) => !prev);
           break;
+
 
         case "?":
           e.preventDefault();
@@ -178,9 +180,10 @@ export function PresentationDeck() {
         onOpenHelp={() => setIsHelpOpen(true)}
       />
 
-      {/* Main 16:9 Presentation Viewport - strictly zero vertical scrolling */}
-      <main className="relative flex-1 w-full max-w-[1920px] mx-auto flex items-center justify-center p-2 sm:p-4 overflow-hidden z-10">
-        <div className="relative w-full h-full max-h-[90vh] aspect-video max-w-7xl mx-auto flex flex-col justify-center overflow-hidden border border-slate-900/60 rounded-3xl bg-black/40">
+      {/* Main Ultra-Widescreen Presentation Viewport - strictly zero vertical scrolling */}
+      <main className="relative flex-1 w-full h-full flex items-center justify-center p-2 sm:p-4 lg:p-6 overflow-hidden z-10">
+        <div className="relative w-full h-full max-w-[1880px] mx-auto flex flex-col justify-center overflow-hidden border border-slate-800/80 rounded-3xl bg-black/60 shadow-2xl">
+
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
@@ -190,16 +193,17 @@ export function PresentationDeck() {
               transition={{ duration: 0.35, ease: "easeOut" }}
               className="w-full h-full flex flex-col justify-between overflow-hidden"
             >
-              {currentSlide === 1 && <Slide01OneGovernment replayTrigger={replayCount} />}
-              {currentSlide === 2 && <Slide02VettriPayanam replayTrigger={replayCount} />}
-              {currentSlide === 3 && <Slide03Annapoorani replayTrigger={replayCount} />}
-              {currentSlide === 4 && <Slide04MeetTheQubit replayTrigger={replayCount} />}
-              {currentSlide === 5 && <Slide05QuantumGates replayTrigger={replayCount} />}
-              {currentSlide === 6 && <Slide06AddMachineLearning replayTrigger={replayCount} />}
-              {currentSlide === 7 && <Slide07LiveExperiment replayTrigger={replayCount} />}
-              {currentSlide === 8 && <Slide08FullCircle replayTrigger={replayCount} />}
+              {currentSlide === 1 && <Slide01Intro replayTrigger={replayCount} />}
+              {currentSlide === 2 && <Slide02Classical />}
+              {currentSlide === 3 && <Slide03Quantum />}
+              {currentSlide === 4 && <Slide04Pipeline />}
+              {currentSlide === 5 && <Slide05Algorithms />}
+              {currentSlide === 6 && <Slide06Python />}
+              {currentSlide === 7 && <Slide07Outlook />}
+              {currentSlide === 8 && <Slide08Demo replayTrigger={replayCount} />}
             </motion.div>
           </AnimatePresence>
+
         </div>
       </main>
 

@@ -18,12 +18,10 @@ export function KeyboardHelpModal({ isOpen, onClose }: KeyboardHelpModalProps) {
     { key: "Home / End", desc: "First / Last slide" },
     { key: "F", desc: "Toggle Fullscreen presentation mode" },
     { key: "R", desc: "Replay current slide animation" },
-    { key: "D", desc: "Jump directly to Live Experiment (Slide 7)" },
+    { key: "D", desc: "Jump directly to Live TVK Election Demo (Slide 8)" },
     { key: "N", desc: "Toggle Speaker Notes drawer" },
-    { key: "A / S / P", desc: "In Slide 7: Select Attendance / Study / Score" },
-    { key: "↑ / ↓", desc: "In Slide 7: Adjust selected feature value" },
-    { key: "Enter", desc: "In Slide 7: Execute live quantum model" },
     { key: "Escape", desc: "Exit Fullscreen or close overlays" },
+
   ];
 
   return (

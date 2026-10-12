@@ -15,6 +15,10 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const {
+      youth_turnout,
+      anti_incumbency,
+      alliance_factor,
+      constituency,
       attendance,
       study_hours,
       previous_score,
@@ -25,6 +29,10 @@ export async function POST(req: NextRequest) {
 
     const result = simulateVQC(
       {
+        youth_turnout: youth_turnout !== undefined ? Number(youth_turnout) : undefined,
+        anti_incumbency: anti_incumbency !== undefined ? Number(anti_incumbency) : undefined,
+        alliance_factor: alliance_factor !== undefined ? Number(alliance_factor) : undefined,
+        constituency: constituency !== undefined ? String(constituency) : undefined,
         attendance: attendance !== undefined ? Number(attendance) : undefined,
         study_hours: study_hours !== undefined ? Number(study_hours) : undefined,
         previous_score: previous_score !== undefined ? Number(previous_score) : undefined,
@@ -43,3 +51,4 @@ export async function POST(req: NextRequest) {
     );
   }
 }
+
