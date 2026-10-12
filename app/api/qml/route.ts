@@ -15,6 +15,9 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const {
+      welfare_delivery,
+      youth_approval,
+      governance_rating,
       youth_turnout,
       anti_incumbency,
       alliance_factor,
@@ -29,6 +32,9 @@ export async function POST(req: NextRequest) {
 
     const result = simulateVQC(
       {
+        welfare_delivery: welfare_delivery !== undefined ? Number(welfare_delivery) : undefined,
+        youth_approval: youth_approval !== undefined ? Number(youth_approval) : undefined,
+        governance_rating: governance_rating !== undefined ? Number(governance_rating) : undefined,
         youth_turnout: youth_turnout !== undefined ? Number(youth_turnout) : undefined,
         anti_incumbency: anti_incumbency !== undefined ? Number(anti_incumbency) : undefined,
         alliance_factor: alliance_factor !== undefined ? Number(alliance_factor) : undefined,

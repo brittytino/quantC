@@ -7,13 +7,16 @@ export interface SlideData {
 }
 
 export interface CandidateFeatures {
-  // TVK 2026 Tamil Nadu Electoral Features
-  youth_turnout?: number; // 0 to 100% (Gen Z & Youth TVK Mobilization)
-  anti_incumbency?: number; // 0 to 100% (Dissatisfaction with Status Quo)
-  alliance_factor?: number; // 0 to 100% (Power-Sharing Entanglement Multiplier)
-  constituency?: string; // e.g. "Vikravandi", "Coimbatore South", "Madurai Central", "Kolathur", "Tambaram"
+  // TVK 2026 Ruling Government Analytics Features
+  welfare_delivery?: number; // 0 to 100% (Vettri Payanam Free Bus + Annapoorani LPG & ₹2,500 DBT)
+  youth_approval?: number; // 0 to 100% (Youth & Student Support for Ruling TVK)
+  governance_rating?: number; // 0 to 100% (Statewide Governance Performance & Delivery)
+  constituency?: string; // e.g. "Madurantakam (SC)", "Dharapuram", "Vikravandi", "Coimbatore South"
 
-  // Legacy backward-compatibility parameters
+  // Backward compatibility alias keys
+  youth_turnout?: number;
+  anti_incumbency?: number;
+  alliance_factor?: number;
   attendance?: number;
   study_hours?: number;
   previous_score?: number;
@@ -23,10 +26,10 @@ export interface CandidateFeatures {
 }
 
 export interface QuantumPredictionResult {
-  prediction: string; // e.g. "TVK Disruption / Victory", "Close Contest / Swing", "Status Quo Lead"
+  prediction: string; // e.g. "Ruling TVK Landslide Retention", "Ruling TVK Solid Win", "Close Battleground"
   probability: number; // 0.0 to 1.0 (confidence for predicted class)
   probabilities: {
-    tvk_victory?: number;
+    tvk_victory?: number; // Ruling TVK retention probability
     close_swing?: number;
     status_quo?: number;
     strong_candidate?: number;
@@ -35,10 +38,10 @@ export interface QuantumPredictionResult {
   projected_vote_share?: number;
   constituency?: string;
   measurement_counts: {
-    "00": number; // DMK+ Status Quo
-    "01": number; // AIADMK+ Traditional
-    "10": number; // NDA / NTK
-    "11": number; // TVK Victory
+    "00": number; // Opposition DMK
+    "01": number; // Opposition AIADMK
+    "10": number; // Third Front / Independents
+    "11": number; // Ruling TVK Retained
   };
   measurement_percentages: {
     "00": number;

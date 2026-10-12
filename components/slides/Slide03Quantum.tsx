@@ -8,14 +8,14 @@ export function Slide03Quantum() {
   const [qubitState, setQubitState] = useState<{ alpha: number; beta: number; label: string }>({
     alpha: 0.7071,
     beta: 0.7071,
-    label: "Balanced Undecided Youth Voter",
+    label: "Balanced Undecided Voter (Hadamard Superposition)",
   });
 
   const p0 = Number((qubitState.alpha * qubitState.alpha * 100).toFixed(1));
   const p1 = Number((qubitState.beta * qubitState.beta * 100).toFixed(1));
 
   return (
-    <div className="relative w-full h-full flex flex-col justify-between p-6 sm:p-10 lg:p-14 select-none overflow-hidden bg-[#05070e]">
+    <div className="relative w-full h-full flex flex-col justify-between p-6 sm:p-10 lg:p-12 select-none overflow-hidden bg-[#05070e]">
       {/* Slide Header */}
       <div className="z-10">
         <div className="flex items-center gap-2 mb-1.5">
@@ -25,10 +25,10 @@ export function Slide03Quantum() {
           <span className="text-xs font-mono text-slate-500">PRESENTER 01</span>
         </div>
         <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight font-sans">
-          MEET THE QUBIT: THE &apos;SCHRÖDINGER VOTER&apos;
+          MEET THE QUBIT: THE &apos;SUPERPOSITION VOTER&apos;
         </h2>
         <p className="text-sm sm:text-lg lg:text-xl text-slate-300 mt-1 font-medium">
-          From Binary Classical Transistors to Quantum Superposition: |ψ⟩ = α|0⟩ + β|1⟩
+          From Binary Transistors to Continuous Quantum State Space: |ψ⟩ = α|0⟩ + β|1⟩
         </p>
       </div>
 
@@ -43,39 +43,39 @@ export function Slide03Quantum() {
                 Classical Transistor Bit
               </span>
               <span className="text-xs font-mono px-2.5 py-0.5 rounded bg-slate-900 text-slate-400 border border-slate-800">
-                Discrete
+                Rigid Binary
               </span>
             </div>
 
             <div className="flex items-center justify-center gap-8 py-5 bg-slate-900/60 rounded-2xl border border-slate-800 my-2">
               <div className="text-center">
-                <span className="text-5xl font-mono font-bold text-slate-600 block">0</span>
-                <span className="text-xs font-mono text-slate-400 mt-1 block">Status Quo</span>
+                <span className="text-5xl font-mono font-bold text-slate-500 block">0</span>
+                <span className="text-xs font-mono text-slate-400 mt-1 block">Opposition</span>
               </div>
               <span className="text-base font-mono font-bold text-slate-500">OR</span>
               <div className="text-center">
                 <span className="text-5xl font-mono font-bold text-amber-400 block">1</span>
-                <span className="text-xs font-mono text-amber-300 mt-1 block">Opposition</span>
+                <span className="text-xs font-mono text-amber-300 mt-1 block">Ruling TVK</span>
               </div>
             </div>
 
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
-              Rigid binary logic. Fails to model the 1.5+ crore undecided Tamil Nadu voters who hold complex, fluid preferences until election day.
+              Binary logic forces voters into 0 or 1 prematurely. It cannot model citizens weighing multiple flagship policies simultaneously.
             </p>
           </div>
 
           {/* Wavefunction Collapse Card */}
           <div className="bg-red-950/40 border border-red-500/40 rounded-3xl p-6 shadow-2xl space-y-2">
             <span className="text-xs sm:text-sm font-mono uppercase text-red-400 font-bold tracking-wider block">
-              ELECTION DAY COLLAPSE
+              POLLING DAY WAVEFUNCTION COLLAPSE
             </span>
             <p className="text-xs sm:text-sm text-slate-200 font-sans leading-relaxed">
-              When a voter enters the polling booth and presses the EVM button, the quantum wavefunction{" "}
-              <strong className="text-white">collapses</strong> into a single classical vote outcome!
+              When a citizen enters the booth and presses the button on the Electronic Voting Machine (EVM), the quantum wavefunction{" "}
+              <strong className="text-white">collapses</strong> into a single classical eigenvalue:
             </p>
             <div className="pt-2 border-t border-red-900/60 font-mono text-xs text-red-300 flex justify-between">
               <span>EVM Button Press</span>
-              <span className="font-bold">➔ Measurement Collapse</span>
+              <span className="font-bold">➔ Projective Measurement P(1) = |β|²</span>
             </div>
           </div>
         </div>
@@ -92,7 +92,7 @@ export function Slide03Quantum() {
 
           <div className="w-full text-center mt-3">
             <span className="text-xs sm:text-sm font-mono text-slate-400 block">
-              North Pole: |0⟩ (Status Quo) • South Pole: |1⟩ (TVK Victory)
+              North Pole: |0⟩ (Opposition DMK) • South Pole: |1⟩ (Ruling TVK Retained)
             </span>
           </div>
         </div>
@@ -111,7 +111,7 @@ export function Slide03Quantum() {
             <div className="space-y-3 font-mono text-xs sm:text-sm">
               <div>
                 <div className="flex justify-between text-slate-300 mb-1">
-                  <span>|0⟩ Status Quo:</span>
+                  <span>|0⟩ Opposition DMK:</span>
                   <span className="text-slate-400 font-bold">{p0}%</span>
                 </div>
                 <div className="w-full bg-slate-800 h-3 rounded-full overflow-hidden">
@@ -121,11 +121,11 @@ export function Slide03Quantum() {
 
               <div>
                 <div className="flex justify-between text-slate-300 mb-1">
-                  <span>|1⟩ TVK Transformation:</span>
+                  <span>|1⟩ Ruling TVK Retained:</span>
                   <span className="text-red-400 font-bold">{p1}%</span>
                 </div>
                 <div className="w-full bg-slate-800 h-3 rounded-full overflow-hidden">
-                  <motion.div className="bg-red-500 h-full" animate={{ width: `${p1}%` }} />
+                  <motion.div className="bg-gradient-to-r from-red-500 to-amber-500 h-full" animate={{ width: `${p1}%` }} />
                 </div>
               </div>
             </div>
@@ -135,22 +135,22 @@ export function Slide03Quantum() {
               <span className="text-xs font-mono text-slate-400 block">Simulate Voter Alignment:</span>
               <div className="grid grid-cols-3 gap-2 font-mono text-xs">
                 <button
-                  onClick={() => setQubitState({ alpha: 0.95, beta: 0.31, label: "Hardcore Status Quo Voter" })}
+                  onClick={() => setQubitState({ alpha: 0.92, beta: 0.39, label: "Critical Opposition Leaning" })}
                   className="py-2 px-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition-all text-center"
                 >
-                  Status Quo
+                  Opposition
                 </button>
                 <button
-                  onClick={() => setQubitState({ alpha: 0.7071, beta: 0.7071, label: "Balanced Undecided Youth" })}
+                  onClick={() => setQubitState({ alpha: 0.7071, beta: 0.7071, label: "Balanced Undecided Citizen" })}
                   className="py-2 px-2 rounded-xl bg-cyan-950 hover:bg-cyan-900 text-cyan-300 border border-cyan-500/50 transition-all text-center font-bold"
                 >
                   Undecided (H)
                 </button>
                 <button
-                  onClick={() => setQubitState({ alpha: 0.28, beta: 0.96, label: "TVK Youth Wave Surge" })}
+                  onClick={() => setQubitState({ alpha: 0.25, beta: 0.97, label: "Ruling TVK Welfare Retention Wave" })}
                   className="py-2 px-2 rounded-xl bg-red-950 hover:bg-red-900 text-red-300 border border-red-500/50 transition-all text-center font-bold"
                 >
-                  TVK Wave
+                  Welfare Wave
                 </button>
               </div>
             </div>
@@ -159,10 +159,10 @@ export function Slide03Quantum() {
           {/* Academic Insight Box */}
           <div className="p-5 rounded-3xl bg-slate-900/90 border border-slate-800">
             <span className="text-xs font-mono text-slate-400 uppercase tracking-wider block">
-              The Fundamental Insight:
+              The Fundamental Takeaway:
             </span>
             <p className="text-xs sm:text-sm text-slate-200 mt-1 font-sans leading-relaxed">
-              Superposition allows Python algorithms to compute with continuous probability distributions instead of brute-forcing individual guesses.
+              Superposition allows Python algorithms to operate on continuous probability vectors instead of guessing static binary polls.
             </p>
           </div>
         </div>
@@ -171,7 +171,7 @@ export function Slide03Quantum() {
       {/* Footer */}
       <div className="flex justify-between items-center text-xs sm:text-sm font-mono text-slate-500 border-t border-slate-900 pt-3 z-10">
         <span>Slide 03 • The Qubit & Superposition</span>
-        <span>Next: Slide 04 Quantum Entanglement: The Coalition Multiplier ➔</span>
+        <span>Next: Slide 04 Quantum Entanglement: The Multi-Scheme Multiplier ➔</span>
       </div>
     </div>
   );

@@ -64,7 +64,7 @@ export function Slide01Intro({ replayTrigger = 0 }: Slide01Props) {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-full flex flex-col justify-between p-6 sm:p-10 lg:p-14 select-none overflow-hidden bg-[#05070e]"
+      className="relative w-full h-full flex flex-col justify-between p-6 sm:p-10 lg:p-12 select-none overflow-hidden bg-[#05070e]"
     >
       {/* Background ambient lighting */}
       <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-red-600/15 rounded-full blur-3xl pointer-events-none" />
@@ -73,11 +73,11 @@ export function Slide01Intro({ replayTrigger = 0 }: Slide01Props) {
 
       {/* Top Header Block - Ultra Widescreen */}
       <div className="text-center max-w-[1700px] mx-auto w-full z-10">
-        <div ref={badgeRef} className="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-2 rounded-full bg-slate-900/95 border border-amber-500/40 text-amber-300 text-xs sm:text-sm font-mono font-bold mb-3 shadow-[0_0_25px_rgba(245,158,11,0.25)]">
+        <div ref={badgeRef} className="inline-flex flex-wrap items-center justify-center gap-2 px-5 py-2 rounded-full bg-slate-900/95 border border-amber-500/40 text-amber-300 text-xs sm:text-sm font-mono font-bold mb-3 shadow-[0_0_25px_rgba(245,158,11,0.25)]">
           <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" />
-          <span>TAMIL NADU 2026 ELECTIONS</span>
+          <span>TAMIL NADU RULING PARTY GOVERNANCE</span>
           <span className="text-slate-500">|</span>
-          <span className="text-emerald-400">OCTOBER 2026 BY-ELECTIONS: TVK WINS 2-0 (MADURANTAKAM & DHARAPURAM)</span>
+          <span className="text-emerald-400">OCTOBER 9, 2026 BY-ELECTIONS: TVK SWEEPS 2-0 (MADURANTAKAM & DHARAPURAM)</span>
           <span className="text-slate-500">|</span>
           <span className="text-cyan-400">QML VALIDATION CASE STUDY</span>
         </div>
@@ -94,39 +94,39 @@ export function Slide01Intro({ replayTrigger = 0 }: Slide01Props) {
 
         <p
           ref={subtitleRef}
-          className="text-lg sm:text-2xl lg:text-3xl text-slate-300 mt-3 font-semibold max-w-[1600px] mx-auto leading-relaxed"
+          className="text-lg sm:text-2xl lg:text-3xl text-slate-200 mt-3 font-semibold max-w-[1600px] mx-auto leading-relaxed"
         >
-          Decoding the Non-Linear Quantum Superposition of Tamil Nadu’s 2026 TVK Political Wave
+          Modeling Ruling TVK Welfare Policy Entanglement & By-Election Landslide Retention in Tamil Nadu
         </p>
       </div>
 
-      {/* Center Hero: Cinematic Graphic + Quantum Analogy Hook */}
+      {/* Center Hero: Cinematic Graphic + Quantum Governance Hook */}
       <div
         ref={heroCardRef}
         className="grid grid-cols-1 lg:grid-cols-12 gap-8 my-auto items-center max-w-[1720px] mx-auto w-full z-10"
       >
         {/* Left Hero Graphic Card (7 cols) */}
-        <div className="lg:col-span-7 relative h-72 sm:h-88 md:h-[420px] rounded-3xl overflow-hidden border border-slate-800 bg-slate-950/80 shadow-2xl group">
+        <div className="lg:col-span-7 relative h-72 sm:h-88 md:h-[400px] rounded-3xl overflow-hidden border border-slate-800 bg-slate-950/80 shadow-2xl group">
           <Image
             src="/tvk_quantum_hero.jpg"
-            alt="Tamil Nadu TVK Politics meets Quantum Machine Learning"
+            alt="Tamil Nadu Ruling TVK Governance meets Quantum Machine Learning"
             fill
             className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-transparent pointer-events-none" />
 
           {/* Overlay Context Badge */}
           <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-3 z-10">
             <div>
               <span className="text-xs sm:text-sm font-mono font-bold text-amber-400 uppercase tracking-widest block">
-                234 Assembly Constituencies • 6.2 Crore Voters
+                Tamilaga Vettri Kazhagam (TVK) • Ruling Party of Tamil Nadu
               </span>
               <span className="text-base sm:text-xl font-sans text-white font-black block mt-1">
-                5-Cornered Battle: DMK+ vs AIADMK+ vs TVK vs NDA vs NTK
+                Flagships: வெற்றிப் பயணம் (Free Bus) • அன்னபூரணி Super 6 (LPG & ₹2,500 DBT)
               </span>
             </div>
-            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-black/80 border border-cyan-500/50 text-cyan-300 font-mono text-xs sm:text-sm font-bold shadow-lg">
+            <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-black/80 border border-cyan-500/50 text-cyan-300 font-mono text-xs sm:text-sm font-bold shadow-lg">
               <span>Python 3.11</span>
               <span>•</span>
               <span>Qiskit 1.0 VQC</span>
@@ -136,18 +136,16 @@ export function Slide01Intro({ replayTrigger = 0 }: Slide01Props) {
 
         {/* Right QML Conceptual Bridge (5 cols) */}
         <div className="lg:col-span-5 flex flex-col justify-between gap-5 h-full">
-          <div className="bg-slate-950/95 border border-slate-800 rounded-3xl p-6 lg:p-8 shadow-2xl space-y-4">
+          <div className="bg-slate-950/95 border border-slate-800 rounded-3xl p-6 lg:p-7 shadow-2xl space-y-4">
             <span className="text-xs sm:text-sm font-mono uppercase tracking-widest text-cyan-400 font-bold block">
-              THE CORE RESEARCH QUESTION
+              THE CORE SCIENTIFIC QUESTION
             </span>
             <p className="text-base sm:text-lg text-slate-200 font-sans leading-relaxed">
-              Classical polling models treat voters as discrete binary switches (0 or 1). But in 2026, with{" "}
-              <strong className="text-white">Thalapathy Vijay’s TVK</strong> entering the arena, voter sentiment operates in a continuous{" "}
-              <strong className="text-amber-400">Quantum Superposition</strong>.
+              Classical polls treat voters as binary 0 or 1. But evaluating a <strong className="text-amber-400">ruling government</strong> with 6.2 crore citizens and multi-scheme welfare benefits creates continuous <strong className="text-cyan-300">Quantum Superposition</strong> and cross-policy entanglement.
             </p>
             <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 font-mono text-sm sm:text-base text-slate-300 flex items-center justify-between">
               <span className="text-slate-400">State Vector:</span>
-              <span className="text-cyan-300 font-bold">|ψ⟩ = α|Status Quo⟩ + β|TVK Change⟩</span>
+              <span className="text-cyan-300 font-bold">|ψ⟩ = α|Opposition DMK⟩ + β|Ruling TVK Retained⟩</span>
             </div>
           </div>
 
@@ -155,13 +153,13 @@ export function Slide01Intro({ replayTrigger = 0 }: Slide01Props) {
           <div className="bg-gradient-to-r from-red-950/60 via-slate-950 to-emerald-950/60 border border-emerald-500/50 rounded-3xl p-5 sm:p-6 shadow-xl flex items-center justify-between">
             <div className="space-y-1">
               <span className="text-xs font-mono uppercase text-emerald-400 font-bold block tracking-wider">
-                EMPIRICAL VALIDATION (OCTOBER 9, 2026)
+                CERTIFIED ECI OUTCOME (OCTOBER 9, 2026)
               </span>
               <span className="text-base sm:text-lg font-sans font-bold text-white block">
-                TVK Sweeps By-Elections 2-0: Madurantakam & Dharapuram
+                Ruling TVK Sweeps By-Elections 2-0: Madurantakam & Dharapuram
               </span>
               <span className="text-xs sm:text-sm text-slate-300 font-sans block">
-                Classical models predicted DMK sweeps. Quantum ML identified the non-linear wave!
+                Classical models predicted opposition swings. Quantum ML captured the true non-linear welfare retention wave!
               </span>
             </div>
             <span className="text-3xl shrink-0 ml-3">🗳️</span>
@@ -175,26 +173,26 @@ export function Slide01Intro({ replayTrigger = 0 }: Slide01Props) {
         className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-[1720px] mx-auto w-full z-10"
       >
         <div className="p-4 rounded-2xl bg-slate-950/90 border border-slate-800 text-center shadow-lg">
-          <span className="text-xs font-mono text-slate-400 uppercase tracking-wider block">Total Battlefield</span>
+          <span className="text-xs font-mono text-slate-400 uppercase tracking-wider block">State Electorate</span>
           <span className="text-2xl sm:text-3xl lg:text-4xl font-black font-mono text-white mt-1 block">234 Seats</span>
-          <span className="text-xs font-mono text-cyan-400 block mt-0.5">TN Legislative Assembly</span>
+          <span className="text-xs font-mono text-cyan-400 block mt-0.5">6.2 Crore Tamil Nadu Citizens</span>
         </div>
 
         <div className="p-4 rounded-2xl bg-slate-950/90 border border-slate-800 text-center shadow-lg">
-          <span className="text-xs font-mono text-slate-400 uppercase tracking-wider block">By-Election Result (Oct 9)</span>
-          <span className="text-2xl sm:text-3xl lg:text-4xl font-black font-mono text-emerald-400 mt-1 block">TVK: 2 / 2</span>
+          <span className="text-xs font-mono text-slate-400 uppercase tracking-wider block">Oct 9 By-Election Sweep</span>
+          <span className="text-2xl sm:text-3xl lg:text-4xl font-black font-mono text-emerald-400 mt-1 block">Ruling TVK: 2 / 2</span>
           <span className="text-xs font-mono text-slate-300 block mt-0.5">Madurantakam (+20K) & Dharapuram (+9.4K)</span>
         </div>
 
         <div className="p-4 rounded-2xl bg-slate-950/90 border border-slate-800 text-center shadow-lg">
-          <span className="text-xs font-mono text-slate-400 uppercase tracking-wider block">Disruptor Demographic</span>
-          <span className="text-2xl sm:text-3xl lg:text-4xl font-black font-mono text-red-400 mt-1 block">1.5 Cr Youth</span>
-          <span className="text-xs font-mono text-slate-300 block mt-0.5">18–35 Gen-Z & First-Time Voters</span>
+          <span className="text-xs font-mono text-slate-400 uppercase tracking-wider block">Welfare Multipliers</span>
+          <span className="text-2xl sm:text-3xl lg:text-4xl font-black font-mono text-amber-400 mt-1 block">Free Bus + LPG</span>
+          <span className="text-xs font-mono text-slate-300 block mt-0.5">Vettri Payanam & Annapoorani Super 6</span>
         </div>
 
         <div className="p-4 rounded-2xl bg-slate-950/90 border border-slate-800 text-center shadow-lg">
           <span className="text-xs font-mono text-slate-400 uppercase tracking-wider block">Simulation Engine</span>
-          <span className="text-2xl sm:text-3xl lg:text-4xl font-black font-mono text-cyan-400 mt-1 block">Python VQC</span>
+          <span className="text-2xl sm:text-3xl lg:text-4xl font-black font-mono text-cyan-400 mt-1 block">Python Qiskit VQC</span>
           <span className="text-xs font-mono text-slate-300 block mt-0.5">Slide 08 Live Interactive Demo</span>
         </div>
       </div>
@@ -205,7 +203,7 @@ export function Slide01Intro({ replayTrigger = 0 }: Slide01Props) {
         className="flex justify-between items-center text-xs sm:text-sm font-mono text-slate-500 border-t border-slate-900 pt-3 z-10"
       >
         <div className="flex items-center gap-3">
-          <span className="text-red-500 font-bold">TVK 2026</span>
+          <span className="text-red-500 font-bold">Ruling TVK 2026</span>
           <span>•</span>
           <span className="text-slate-300 font-medium">Quantum Machine Learning with Python</span>
           <span>•</span>

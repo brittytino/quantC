@@ -11,29 +11,29 @@ interface Slide08Props {
 }
 
 export function Slide08Demo({ replayTrigger = 0 }: Slide08Props) {
-  // TVK 2026 Political Parameters
+  // TVK Ruling Governance Parameters
   const [constituency, setConstituency] = useState<string>("Madurantakam (SC)");
-  const [youthTurnout, setYouthTurnout] = useState<number>(85);
-  const [antiIncumbency, setAntiIncumbency] = useState<number>(76);
-  const [allianceFactor, setAllianceFactor] = useState<number>(70);
+  const [welfareDelivery, setWelfareDelivery] = useState<number>(86);
+  const [youthApproval, setYouthApproval] = useState<number>(88);
+  const [governanceRating, setGovernanceRating] = useState<number>(80);
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [executionStage, setExecutionStage] = useState<string>("");
 
   const [result, setResult] = useState<QuantumPredictionResult>({
-    prediction: "TVK Victory Disruption",
-    probability: 0.912,
+    prediction: "Ruling TVK Landslide Retention",
+    probability: 0.924,
     probabilities: {
-      tvk_victory: 91.2,
-      status_quo: 8.8,
-      strong_candidate: 91.2,
-      needs_improvement: 8.8,
+      tvk_victory: 92.4,
+      status_quo: 7.6,
+      strong_candidate: 92.4,
+      needs_improvement: 7.6,
     },
-    projected_vote_share: 42.5,
+    projected_vote_share: 43.5,
     constituency: "Madurantakam (SC)",
-    measurement_counts: { "00": 90, "01": 130, "10": 170, "11": 610 },
-    measurement_percentages: { "00": 9.0, "01": 13.0, "10": 17.0, "11": 61.0 },
-    circuit_params: { theta_0: 2.543, theta_1: 2.435, w_0: 0.84, w_1: 1.28 },
+    measurement_counts: { "00": 70, "01": 110, "10": 140, "11": 680 },
+    measurement_percentages: { "00": 7.0, "01": 11.0, "10": 14.0, "11": 68.0 },
+    circuit_params: { theta_0: 2.62, theta_1: 2.74, w_0: 0.84, w_1: 1.28 },
     model: "Variational Quantum Classifier (VQC)",
     backend: "Python Qiskit 1.0 Simulator / Next.js Quantum Engine",
     qubits: 2,
@@ -42,40 +42,40 @@ export function Slide08Demo({ replayTrigger = 0 }: Slide08Props) {
   });
 
   const constituencies = [
-    { name: "Madurantakam (SC)", badge: "Oct 9 By-Election: +20,040 TVK Win", verified: true },
-    { name: "Dharapuram", badge: "Oct 9 By-Election: +9,471 TVK Win", verified: true },
+    { name: "Madurantakam (SC)", badge: "Oct 9 By-Election: +20,040 TVK Retained", verified: true },
+    { name: "Dharapuram", badge: "Oct 9 By-Election: +9,471 TVK Retained", verified: true },
     { name: "Vikravandi", badge: "TVK Historic Maanadu Hub", verified: false },
-    { name: "Coimbatore South", badge: "Urban Youth & Tech Battleground", verified: false },
+    { name: "Coimbatore South", badge: "Urban Tech & Industry Battleground", verified: false },
     { name: "Madurai Central", badge: "Southern Cultural Core", verified: false },
-    { name: "Kolathur", badge: "VIP Incumbent Belt", verified: false },
+    { name: "Kolathur", badge: "High-Profile Metro Seat", verified: false },
   ];
 
   const presets = [
-    { label: "🗳️ Oct 9 By-Election Sweep (Verified)", youth: 85, anti: 76, alliance: 70, seat: "Madurantakam (SC)" },
-    { label: "🚀 Statewide TVK Mega Surge", youth: 90, anti: 82, alliance: 78, seat: "Vikravandi" },
-    { label: "⚖️ Tight 5-Cornered Battle", youth: 58, anti: 52, alliance: 48, seat: "Coimbatore South" },
-    { label: "🛡️ Status Quo Inertia", youth: 35, anti: 30, alliance: 28, seat: "Kolathur" },
+    { label: "🗳️ Oct 9 By-Election Sweep (Verified)", welfare: 86, youth: 88, gov: 80, seat: "Madurantakam (SC)" },
+    { label: "🚀 Statewide TVK Mega Retention", welfare: 92, youth: 90, gov: 85, seat: "Dharapuram" },
+    { label: "⚖️ Contested Battleground", welfare: 55, youth: 54, gov: 50, seat: "Coimbatore South" },
+    { label: "🛡️ Low Welfare Reach Stress Test", welfare: 35, youth: 38, gov: 32, seat: "Kolathur" },
   ];
 
   const runPrediction = useCallback(async () => {
     setIsLoading(true);
 
-    setExecutionStage("1/4: Encoding Demographic Rotation Angles (θ₀, θ₁)...");
+    setExecutionStage("1/4: Encoding Welfare Governance Angles (θ₀, θ₁)...");
     await new Promise((r) => setTimeout(r, 220));
 
-    setExecutionStage("2/4: Applying Hadamard Superposition to 1.5 Cr Youth...");
+    setExecutionStage("2/4: Applying Hadamard Superposition to Undecided Electorate...");
     await new Promise((r) => setTimeout(r, 220));
 
-    setExecutionStage("3/4: CNOT Entanglement of Coalition Alliances...");
+    setExecutionStage("3/4: CNOT Quantum Entanglement of Free Bus & LPG Subsidies...");
     await new Promise((r) => setTimeout(r, 240));
 
     setExecutionStage("4/4: Sampling 1,000 Polling Booth EVM Shots in Hilbert Space...");
     await new Promise((r) => setTimeout(r, 240));
 
     const feat: CandidateFeatures = {
-      youth_turnout: youthTurnout,
-      anti_incumbency: antiIncumbency,
-      alliance_factor: allianceFactor,
+      welfare_delivery: welfareDelivery,
+      youth_approval: youthApproval,
+      governance_rating: governanceRating,
       constituency,
     };
 
@@ -88,23 +88,23 @@ export function Slide08Demo({ replayTrigger = 0 }: Slide08Props) {
       setIsLoading(false);
       setExecutionStage("");
     }
-  }, [youthTurnout, antiIncumbency, allianceFactor, constituency]);
+  }, [welfareDelivery, youthApproval, governanceRating, constituency]);
 
   useEffect(() => {
     runPrediction();
   }, [replayTrigger]);
 
-  const isTvkWin = result.prediction.includes("Victory");
+  const isTvkRetained = result.prediction.includes("TVK");
 
   const basisStates = [
-    { key: "00", label: "DMK+ Status Quo", pct: result.measurement_percentages["00"], color: "bg-amber-500" },
-    { key: "01", label: "AIADMK+ Oppn", pct: result.measurement_percentages["01"], color: "bg-emerald-500" },
-    { key: "10", label: "NDA / NTK Split", pct: result.measurement_percentages["10"], color: "bg-sky-500" },
-    { key: "11", label: "TVK VICTORY", pct: result.measurement_percentages["11"], color: "bg-red-500" },
+    { key: "00", label: "Opposition DMK", pct: result.measurement_percentages["00"], color: "bg-slate-500" },
+    { key: "01", label: "Opposition AIADMK", pct: result.measurement_percentages["01"], color: "bg-emerald-500" },
+    { key: "10", label: "Third Front", pct: result.measurement_percentages["10"], color: "bg-sky-500" },
+    { key: "11", label: "RULING TVK RETAINED", pct: result.measurement_percentages["11"], color: "bg-gradient-to-t from-red-600 to-amber-500" },
   ];
 
   return (
-    <div className="relative w-full h-full flex flex-col justify-between p-6 sm:p-10 lg:p-14 select-none overflow-hidden bg-[#05070e]">
+    <div className="relative w-full h-full flex flex-col justify-between p-6 sm:p-10 lg:p-12 select-none overflow-hidden bg-[#05070e]">
       {/* Slide Header */}
       <div className="z-10">
         <div className="flex items-center justify-between">
@@ -112,7 +112,7 @@ export function Slide08Demo({ replayTrigger = 0 }: Slide08Props) {
             <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-red-400 bg-red-950/80 px-3 py-1 rounded-full border border-red-500/40 animate-pulse">
               Slide 08 • Grand Climax Live Demo
             </span>
-            <span className="text-xs sm:text-sm font-mono text-cyan-400 font-bold">TVK 2026 ELECTION SIMULATOR</span>
+            <span className="text-xs sm:text-sm font-mono text-cyan-400 font-bold">RULING TVK 2026 ELECTION PREDICTOR</span>
           </div>
 
           <div className="hidden sm:flex items-center gap-2 font-mono text-xs sm:text-sm text-slate-300 bg-slate-950 px-3.5 py-1.5 rounded-xl border border-slate-800">
@@ -124,10 +124,10 @@ export function Slide08Demo({ replayTrigger = 0 }: Slide08Props) {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mt-1">
           <div>
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight font-sans">
-              TVK 2026 QUANTUM ELECTION PREDICTOR
+              RULING TVK 2026 QUANTUM GOVERNANCE PREDICTOR
             </h2>
             <p className="text-xs sm:text-base text-slate-300 mt-0.5 font-medium">
-              Live Variational Quantum Classifier (VQC) Modeling Tamil Nadu Voter Superposition & By-Election Landslides
+              Live Variational Quantum Classifier (VQC) Modeling Tamil Nadu Welfare Entanglement & By-Election Landslides
             </p>
           </div>
 
@@ -149,7 +149,7 @@ export function Slide08Demo({ replayTrigger = 0 }: Slide08Props) {
 
       {/* Main Grid: Left Controls (4 cols) + Right Circuit & Outcomes (8 cols) - Ultra Widescreen */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 my-auto items-stretch max-w-[1720px] mx-auto w-full z-10">
-        {/* Left Column (4 cols): Constituency & Political Tuners */}
+        {/* Left Column (4 cols): Constituency & Governance Tuners */}
         <div className="lg:col-span-4 bg-slate-950/95 border border-slate-800 rounded-3xl p-5 lg:p-6 flex flex-col justify-between shadow-2xl space-y-4">
           <div>
             {/* Constituency Selector */}
@@ -162,7 +162,7 @@ export function Slide08Demo({ replayTrigger = 0 }: Slide08Props) {
                   <button
                     key={c.name}
                     onClick={() => setConstituency(c.name)}
-                    className={`p-2 rounded-xl border text-center transition-all ${
+                    className={`p-2 rounded-xl border text-center transition-all cursor-pointer ${
                       constituency === c.name
                         ? "bg-red-950/90 border-red-500 text-white font-bold shadow-md ring-1 ring-red-400"
                         : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-white"
@@ -185,12 +185,12 @@ export function Slide08Demo({ replayTrigger = 0 }: Slide08Props) {
                   <button
                     key={p.label}
                     onClick={() => {
-                      setYouthTurnout(p.youth);
-                      setAntiIncumbency(p.anti);
-                      setAllianceFactor(p.alliance);
+                      setWelfareDelivery(p.welfare);
+                      setYouthApproval(p.youth);
+                      setGovernanceRating(p.gov);
                       setConstituency(p.seat);
                     }}
-                    className="text-xs font-mono px-2.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-amber-500/40 text-slate-200 transition-all"
+                    className="text-xs font-mono px-2.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-amber-500/40 text-slate-200 transition-all cursor-pointer"
                   >
                     {p.label}
                   </button>
@@ -198,63 +198,63 @@ export function Slide08Demo({ replayTrigger = 0 }: Slide08Props) {
               </div>
             </div>
 
-            {/* Political Sliders */}
+            {/* Governance Sliders */}
             <div className="space-y-3 font-mono text-xs sm:text-sm">
-              {/* Youth Turnout Slider */}
+              {/* Welfare Delivery Slider */}
               <div className="p-3 rounded-2xl bg-slate-900/80 border border-slate-800">
                 <div className="flex justify-between items-center mb-1">
-                  <span className="text-red-400 font-bold">TVK Youth Surge (18–35):</span>
-                  <span className="text-white font-black text-sm sm:text-base">{youthTurnout}%</span>
+                  <span className="text-cyan-400 font-bold">Welfare Delivery (Bus + LPG):</span>
+                  <span className="text-white font-black text-sm sm:text-base">{welfareDelivery}%</span>
                 </div>
                 <input
                   type="range"
                   min="20"
-                  max="95"
+                  max="98"
                   step="1"
-                  value={youthTurnout}
-                  onChange={(e) => setYouthTurnout(Number(e.target.value))}
+                  value={welfareDelivery}
+                  onChange={(e) => setWelfareDelivery(Number(e.target.value))}
+                  className="w-full accent-cyan-400 cursor-pointer h-2 bg-slate-800 rounded-lg"
+                />
+              </div>
+
+              {/* Youth Approval Slider */}
+              <div className="p-3 rounded-2xl bg-slate-900/80 border border-slate-800">
+                <div className="flex justify-between items-center mb-1">
+                  <span className="text-red-400 font-bold">Youth & Student Approval:</span>
+                  <span className="text-white font-black text-sm sm:text-base">{youthApproval}%</span>
+                </div>
+                <input
+                  type="range"
+                  min="20"
+                  max="98"
+                  step="1"
+                  value={youthApproval}
+                  onChange={(e) => setYouthApproval(Number(e.target.value))}
                   className="w-full accent-red-500 cursor-pointer h-2 bg-slate-800 rounded-lg"
                 />
               </div>
 
-              {/* Anti-Incumbency Slider */}
+              {/* Overall Governance Rating */}
               <div className="p-3 rounded-2xl bg-slate-900/80 border border-slate-800">
                 <div className="flex justify-between items-center mb-1">
-                  <span className="text-amber-400 font-bold">Anti-Incumbency Index:</span>
-                  <span className="text-white font-black text-sm sm:text-base">{antiIncumbency}%</span>
+                  <span className="text-amber-400 font-bold">Governance & MLA Rating:</span>
+                  <span className="text-white font-black text-sm sm:text-base">{governanceRating}%</span>
                 </div>
                 <input
                   type="range"
-                  min="20"
-                  max="90"
+                  min="15"
+                  max="95"
                   step="1"
-                  value={antiIncumbency}
-                  onChange={(e) => setAntiIncumbency(Number(e.target.value))}
-                  className="w-full accent-amber-500 cursor-pointer h-2 bg-slate-800 rounded-lg"
-                />
-              </div>
-
-              {/* Alliance Power-Sharing Multiplier */}
-              <div className="p-3 rounded-2xl bg-slate-900/80 border border-slate-800">
-                <div className="flex justify-between items-center mb-1">
-                  <span className="text-cyan-400 font-bold">Alliance Entanglement:</span>
-                  <span className="text-white font-black text-sm sm:text-base">{allianceFactor}%</span>
-                </div>
-                <input
-                  type="range"
-                  min="10"
-                  max="85"
-                  step="1"
-                  value={allianceFactor}
-                  onChange={(e) => setAllianceFactor(Number(e.target.value))}
-                  className="w-full accent-cyan-400 cursor-pointer h-2 bg-slate-800 rounded-lg"
+                  value={governanceRating}
+                  onChange={(e) => setGovernanceRating(Number(e.target.value))}
+                  className="w-full accent-amber-400 cursor-pointer h-2 bg-slate-800 rounded-lg"
                 />
               </div>
             </div>
           </div>
 
           <div className="pt-2 border-t border-slate-900 text-xs font-mono text-slate-400 flex justify-between">
-            <span>Seat: {constituency}</span>
+            <span>Constituency: {constituency}</span>
             <span className="text-cyan-400 font-bold">2 Qubits • 1,000 Shots</span>
           </div>
         </div>
@@ -281,7 +281,7 @@ export function Slide08Demo({ replayTrigger = 0 }: Slide08Props) {
             {/* Outcome Card (5 cols) */}
             <div
               className={`md:col-span-5 rounded-3xl p-6 border flex flex-col justify-between shadow-2xl backdrop-blur-md transition-all ${
-                isTvkWin
+                isTvkRetained
                   ? "bg-gradient-to-br from-red-950/90 via-slate-950 to-amber-950/50 border-red-500/50 shadow-[0_0_30px_rgba(239,68,68,0.3)]"
                   : "bg-slate-950 border-slate-800"
               }`}
@@ -294,12 +294,12 @@ export function Slide08Demo({ replayTrigger = 0 }: Slide08Props) {
                 <div className="flex items-center gap-2.5 mt-1.5">
                   <span
                     className={`w-3.5 h-3.5 rounded-full ${
-                      isTvkWin ? "bg-red-500 animate-ping" : "bg-amber-400 animate-ping"
+                      isTvkRetained ? "bg-red-500 animate-ping" : "bg-amber-400 animate-ping"
                     }`}
                   />
                   <h3
                     className={`text-xl sm:text-2xl lg:text-3xl font-black font-sans tracking-tight ${
-                      isTvkWin ? "text-red-400" : "text-amber-300"
+                      isTvkRetained ? "text-red-400" : "text-amber-300"
                     }`}
                   >
                     {result.prediction.toUpperCase()}
@@ -308,7 +308,7 @@ export function Slide08Demo({ replayTrigger = 0 }: Slide08Props) {
 
                 <div className="mt-4 space-y-2 font-mono text-xs sm:text-sm">
                   <div className="flex justify-between">
-                    <span className="text-slate-300">TVK Win Probability:</span>
+                    <span className="text-slate-300">TVK Retention Confidence:</span>
                     <span className="text-red-400 font-black text-base sm:text-lg">
                       {result.probabilities.tvk_victory}%
                     </span>
@@ -323,7 +323,7 @@ export function Slide08Demo({ replayTrigger = 0 }: Slide08Props) {
               </div>
 
               <div className="mt-4 pt-3 border-t border-slate-800/80 text-xs sm:text-sm font-mono text-cyan-300 font-semibold">
-                ✨ Matches October 9 By-Election Sweep (+20K margin in Madurantakam)!
+                ✨ Validates October 9 By-Election Sweep (+20,040 in Madurantakam & +9,471 in Dharapuram)!
               </div>
             </div>
 
@@ -363,11 +363,11 @@ export function Slide08Demo({ replayTrigger = 0 }: Slide08Props) {
       {/* Slide Footer */}
       <div className="flex items-center justify-between border-t border-slate-800/80 pt-3 text-xs sm:text-sm font-mono text-slate-400 z-10">
         <div className="flex items-center gap-3">
-          <span className="text-red-500 font-bold">TVK 2026</span>
+          <span className="text-red-500 font-bold">Ruling TVK 2026</span>
           <span>•</span>
           <span className="text-white font-bold">QUANTUM MACHINE LEARNING WITH PYTHON</span>
           <span>•</span>
-          <span className="text-emerald-400 font-bold">October By-Election Ground Truth</span>
+          <span className="text-emerald-400 font-bold">October 9 By-Election Ground Truth</span>
         </div>
         <div className="flex items-center gap-4">
           <span className="text-white font-black tracking-wider">THANK YOU</span>

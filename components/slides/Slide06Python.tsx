@@ -9,11 +9,11 @@ export function Slide06Python() {
   const loopSteps = [
     {
       num: "01",
-      name: "TN POLLING DATA",
-      sub: "Booth-level Demographics",
+      name: "TN WELFARE & BOOTH DATA",
+      sub: "Delivery & Public Ratings",
       icon: Database,
-      domain: "Classical",
-      desc: "Real tabular inputs from 65,000 polling booths: Gen-Z youth turnout (18-35), anti-incumbency index, and regional alliance splits.",
+      domain: "Classical Input",
+      desc: "Real tabular inputs from 65,000 polling booths: Vettri Payanam free bus usage, Annapoorani 6 free LPG cylinders + ₹2,500 monthly DBT delivery, and constituency ratings.",
       color: "border-slate-800 bg-slate-950/80 text-slate-300",
     },
     {
@@ -22,7 +22,7 @@ export function Slide06Python() {
       sub: "Ry(θ) Angle Mapping",
       icon: Binary,
       domain: "Quantum Interface",
-      desc: "Classical features are normalized into angles [0, π] and rotated onto the Bloch sphere to create continuous quantum state vectors.",
+      desc: "Classical governance metrics are normalized into angles [0, π] and rotated onto the Bloch sphere to create continuous quantum state vectors.",
       color: "border-cyan-500/40 bg-cyan-950/40 text-cyan-200",
     },
     {
@@ -31,16 +31,16 @@ export function Slide06Python() {
       sub: "Entangled Ansatz",
       icon: Cpu,
       domain: "Quantum QPU",
-      desc: "Hadamard superposition + CNOT coalition entanglement + variational rotation gates evaluate voter interference in Hilbert space.",
+      desc: "Hadamard superposition + CNOT welfare entanglement + parameterized rotation gates evaluate voter interference in Hilbert space.",
       color: "border-purple-500/40 bg-purple-950/40 text-purple-200",
     },
     {
       num: "04",
       name: "1,000 SHOTS MEASUREMENT",
-      sub: "State Sampling",
+      sub: "EVM State Sampling",
       icon: Activity,
       domain: "Quantum QPU",
-      desc: "Collapses wave functions across basis states: |00⟩ (DMK+), |01⟩ (AIADMK+), |10⟩ (Third Front), |11⟩ (TVK Victory).",
+      desc: "Collapses wave functions across basis states: |00⟩ Opposition DMK, |01⟩ AIADMK, |10⟩ Third Front, |11⟩ Ruling TVK Retained.",
       color: "border-emerald-500/40 bg-emerald-950/40 text-emerald-200",
     },
     {
@@ -49,7 +49,7 @@ export function Slide06Python() {
       sub: "Adam / COBYLA",
       icon: RefreshCw,
       domain: "Classical Python",
-      desc: "Calculates cross-entropy loss against historical assembly swing margins and computes quantum gradients via the Parameter Shift Rule.",
+      desc: "Calculates cross-entropy loss against certified by-election victory margins and computes quantum gradients via the Parameter Shift Rule.",
       color: "border-amber-500/40 bg-amber-950/40 text-amber-200",
     },
     {
@@ -58,13 +58,13 @@ export function Slide06Python() {
       sub: "w ← w - η∇L",
       icon: Sliders,
       domain: "Classical Python",
-      desc: "Variational weights (w₀, w₁) are calibrated iteratively until the quantum model accurately maps non-linear voter shifts.",
+      desc: "Variational weights (w₀, w₁) are calibrated iteratively until the quantum model accurately maps non-linear governance retention waves.",
       color: "border-slate-800 bg-slate-950/80 text-slate-300",
     },
   ];
 
   return (
-    <div className="relative w-full h-full flex flex-col justify-between p-6 sm:p-10 lg:p-14 select-none overflow-hidden bg-[#05070e]">
+    <div className="relative w-full h-full flex flex-col justify-between p-6 sm:p-10 lg:p-12 select-none overflow-hidden bg-[#05070e]">
       {/* Slide Header */}
       <div className="z-10">
         <div className="flex items-center gap-2 mb-1.5">
@@ -77,7 +77,7 @@ export function Slide06Python() {
           THE HYBRID QUANTUM-CLASSICAL ML LOOP
         </h2>
         <p className="text-sm sm:text-lg lg:text-xl text-slate-300 mt-1 font-medium">
-          How Quantum State Spaces Train with Python Classical Optimizers
+          How Quantum State Spaces Train with Python Classical Optimizers to Predict Retention
         </p>
       </div>
 
@@ -98,8 +98,8 @@ export function Slide06Python() {
                     : `${step.color} hover:border-slate-600`
                 }`}
               >
-                <div className="w-9 h-9 rounded-xl bg-slate-900 flex items-center justify-center mb-2">
-                  <Icon size={18} className="text-white" />
+                <div className="w-10 h-10 rounded-xl bg-slate-900 flex items-center justify-center mb-2">
+                  <Icon size={20} className="text-white" />
                 </div>
                 <span className="text-xs font-mono text-slate-400 block mb-0.5">Step {step.num}</span>
                 <span className="text-xs sm:text-sm font-mono font-bold text-white block leading-tight">
@@ -123,17 +123,17 @@ export function Slide06Python() {
                   <span className="text-xs sm:text-sm font-mono px-3 py-1 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-500/40 font-bold">
                     Step {active.num} • {active.domain}
                   </span>
-                  <span className="text-lg sm:text-xl font-bold text-white font-sans">{active.name}</span>
+                  <span className="text-lg sm:text-2xl font-bold text-white font-sans">{active.name}</span>
                 </div>
                 <p className="text-sm sm:text-base text-slate-200 leading-relaxed font-sans pt-1">
                   {active.desc}
                 </p>
               </div>
 
-              {/* Real Political Data Concrete Example */}
-              <div className="bg-slate-900/95 border border-slate-800 rounded-3xl p-5 font-mono text-xs sm:text-sm text-slate-300 min-w-[340px] space-y-2 shadow-lg">
+              {/* Real Governance Data Concrete Example */}
+              <div className="bg-slate-900/95 border border-slate-800 rounded-3xl p-5 font-mono text-xs sm:text-sm text-slate-300 min-w-[360px] space-y-2 shadow-lg">
                 <span className="text-xs text-amber-400 uppercase tracking-wider font-bold block">
-                  Ground Truth By-Election Data (Oct 2026):
+                  Ground Truth By-Election Data (Oct 9, 2026):
                 </span>
                 <div className="flex justify-between">
                   <span className="text-slate-400">Madurantakam (SC):</span>
@@ -144,12 +144,12 @@ export function Slide06Python() {
                   <span className="text-red-400 font-bold">66,841 votes (+9.4K margin)</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Power-Sharing Multiplier:</span>
-                  <span className="text-cyan-400 font-bold">65%</span>
+                  <span className="text-slate-400">Welfare Delivery Factor:</span>
+                  <span className="text-cyan-400 font-bold">85% Entangled</span>
                 </div>
                 <div className="pt-2 border-t border-slate-800 flex justify-between text-emerald-400 font-bold">
                   <span>Actual ECI Result:</span>
-                  <span>TVK 2 - DMK 0 (100% Sweep)</span>
+                  <span>Ruling TVK: 2 • Opposition DMK: 0</span>
                 </div>
               </div>
             </div>
@@ -159,10 +159,10 @@ export function Slide06Python() {
         {/* Big Definition Callout: What Makes This QML */}
         <div className="p-5 rounded-3xl bg-gradient-to-r from-red-950/40 via-slate-900/90 to-cyan-950/40 border border-cyan-500/40 text-center">
           <h3 className="text-lg sm:text-2xl font-bold font-sans text-white">
-            “Quantum Machine Learning doesn&apos;t replace classical AI.”
+            “Quantum Machine Learning doesn&apos;t replace classical Python AI.”
           </h3>
           <p className="text-sm sm:text-base text-slate-300 font-sans mt-1">
-            It offloads the complex <span className="text-cyan-300 font-bold">234-constituency state space</span> to quantum Hilbert vectors, while <span className="text-amber-300 font-bold">Python classical optimizers</span> iteratively tune the weights!
+            It offloads the complex <span className="text-cyan-300 font-bold">234-constituency entangled state space</span> to quantum Hilbert vectors, while <span className="text-amber-300 font-bold">Python classical optimizers</span> iteratively tune the weights!
           </p>
         </div>
       </div>
@@ -170,7 +170,7 @@ export function Slide06Python() {
       {/* Footer */}
       <div className="flex justify-between items-center text-xs sm:text-sm font-mono text-slate-500 border-t border-slate-900 pt-3 z-10">
         <span>Slide 06 • The Hybrid QML Loop</span>
-        <span>Next: Slide 07 Classical ML vs Quantum ML: The Breakthrough ➔</span>
+        <span>Next: Slide 07 Classical ML vs Quantum ML: Why QML Won ➔</span>
       </div>
     </div>
   );
